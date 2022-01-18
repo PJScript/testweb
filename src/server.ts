@@ -9,6 +9,7 @@ import { Query, Resolver,buildSchemaSync } from 'type-graphql'
 import TestResolver from './resolver/testResolver'
 import getDataResolver from './resolver/getDataResolver';
 import { createConnection } from 'typeorm';
+import FlowerInfoResolver from './resolver/flowerInfoResolver';
 dotenv.config();
 
 
@@ -21,7 +22,7 @@ const server = async () => {
   await createConnection();
   
   const schema = await buildSchemaSync({
-    resolvers: [TestResolver]
+    resolvers: [TestResolver, FlowerInfoResolver]
   })
 
   const apolloServer = new ApolloServer({schema});

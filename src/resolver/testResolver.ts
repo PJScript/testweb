@@ -10,14 +10,6 @@ interface CheckType {
 
 @Resolver(User)
 class TestResolver {
-
-  @Query(() => String)
-  async ping():Promise<string>{
-      console.log(data[0],"데이터")
-
-
-    return `success`
-  }
   
   @Query(()=> User)
   async getUserInfo():Promise<User | string | any>{

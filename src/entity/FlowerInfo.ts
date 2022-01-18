@@ -3,7 +3,7 @@ import { Entity,PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 
 @ObjectType()
 @Entity("FlowerInfo")
-export default class User extends BaseEntity{
+export default class FlowerInfo extends BaseEntity{
 
   @Field(() => ID)
   @PrimaryGeneratedColumn()
