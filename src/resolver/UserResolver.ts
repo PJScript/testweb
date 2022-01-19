@@ -1,5 +1,5 @@
 import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
-import * as bcrypt from 'bcryptjs' 
+// import * as bcrypt from 'bcryptjs' 
 import data from '../data'
 import User from '../entity/User'
 import FlowerInfo from '../entity/FlowerInfo'
@@ -31,7 +31,8 @@ class UserResolver {
     @Arg("passWord") passWord: string 
     ): Promise<User | string> {
     
-      const hashedPassword = await bcrypt.hash(passWord,12)
+      // const hashedPassword = await bcrypt.hash(passWord,12)
+      const hashedPassword = passWord
         
       const user = User.create({
           firstName,

@@ -10,7 +10,6 @@
     "@types/morgan": "^1.9.3",
     "apollo-server": "^3.6.1",
     "apollo-server-express": "^3.6.1",
-    "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^11.0.0",
@@ -35,6 +34,5 @@
     "seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.2"
   }
 }

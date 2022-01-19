@@ -15,7 +15,7 @@ dotenv.config();
 
 
 const prod: boolean = process.env.NODE_ENV === 'production';
-const port = prod ? process.env.PORT : 8000;
+// const port = prod ? process.env.PORT : 8000;
 
 
 
@@ -39,7 +39,7 @@ const server = async () => {
 
   // app.use()
   app.listen({ port: process.env.PORT || 4000 },()=>{
-    console.log('server is on port ' + port)
+    console.log('server is on port ')
   })
 }
 
