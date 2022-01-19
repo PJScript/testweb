@@ -1,6 +1,9 @@
 import { Field, ID, ObjectType } from "type-graphql";
 import { Entity,PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
-
+interface test {
+  idx:number,
+  answerIdx:number
+}
 @ObjectType()
 @Entity("FlowerInfo")
 export default class FlowerInfo extends BaseEntity{
@@ -36,5 +39,7 @@ export default class FlowerInfo extends BaseEntity{
   @Field()
   @Column()
   engName: string
+
+
 }
 
