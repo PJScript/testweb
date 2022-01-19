@@ -26,7 +26,9 @@ const server = async () => {
     resolvers: [UserResolver, FlowerInfoResolver, getDataResolver]
   })
 
-  const apolloServer = new ApolloServer({schema});
+  const apolloServer = new ApolloServer({
+    introspection: true,
+    schema});
 
   const app = express();
   console.log("Test")
