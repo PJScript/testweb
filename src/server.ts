@@ -1,6 +1,7 @@
 import 'reflect-metadata'
 import morgan from 'morgan';
 import compression from 'compression'
+import cors from 'cors'
 import express from 'express'
 import dotenv from 'dotenv'
 import { ApolloServer } from 'apollo-server-express'
@@ -22,13 +23,16 @@ const server = async () => {
   await createConnection();
   
   const schema = await buildSchemaSync({
-    resolvers: [UserResolver, FlowerInfoResolver]
+    resolvers: [UserResolver, FlowerInfoResolver, getDataResolver]
   })
 
   const apolloServer = new ApolloServer({schema});
 
   const app = express();
-
+  
+  app.use(cors({
+    origin:'*'
+  }))
   await apolloServer.start()
   apolloServer.applyMiddleware({app})
   
