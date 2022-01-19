@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 import { ApolloServer } from 'apollo-server-express'
 import { Query, Resolver,buildSchemaSync } from 'type-graphql'
 // import typeDefs from './schema/schema'
-import TestResolver from './resolver/testResolver'
+import UserResolver from './resolver/UserResolver'
 import getDataResolver from './resolver/getDataResolver';
 import { createConnection } from 'typeorm';
 import FlowerInfoResolver from './resolver/flowerInfoResolver';
@@ -22,7 +22,7 @@ const server = async () => {
   await createConnection();
   
   const schema = await buildSchemaSync({
-    resolvers: [TestResolver, FlowerInfoResolver]
+    resolvers: [UserResolver, FlowerInfoResolver]
   })
 
   const apolloServer = new ApolloServer({schema});
@@ -34,8 +34,8 @@ const server = async () => {
   
 
   // app.use()
-  app.listen(4000,()=>{
-    console.log('server is on port 4000')
+  app.listen(port,()=>{
+    console.log('server is on port ' + port)
   })
 }
 

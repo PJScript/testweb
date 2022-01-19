@@ -4,12 +4,10 @@ import data from '../data'
 import User from '../entity/User'
 import FlowerInfo from '../entity/FlowerInfo'
 // import listDesc from '../schema/schema'
-interface CheckType {
-  id:Number
-}
+
 
 @Resolver(User)
-class TestResolver {
+class UserResolver {
   
   @Query(()=> User)
   async getUserInfo():Promise<User | string | any>{
@@ -45,4 +43,4 @@ class TestResolver {
   }
 }
 
-export default TestResolver
+export default UserResolver

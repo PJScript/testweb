@@ -6,10 +6,10 @@ import FlowerInfo from '../entity/FlowerInfo'
 @Resolver(FlowerInfo)
 class FlowerInfoResolver {
   @Query(() => FlowerInfo)
-  async ping(): Promise<any> {
+  async getMbtiContent(@Arg('mbtiCode') mbtiCode:string): Promise<any> {
     // console.log(data[0],"데이터")
     let data = await FlowerInfo.find({
-      id: 1
+      mbtiCode:mbtiCode
     })
 
     // console.log(data, "데이터")
