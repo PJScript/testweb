@@ -38,7 +38,7 @@ const server = async () => {
   
 
   // app.use()
-  app.listen(port,()=>{
+  app.listen({ port: process.env.PORT || 4000 },()=>{
     console.log('server is on port ' + port)
   })
 }
