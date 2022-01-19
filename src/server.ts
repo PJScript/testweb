@@ -33,7 +33,8 @@ const server = async () => {
   const app = express();
   console.log("Test")
   app.use(cors({
-    origin:'*'
+    origin:'*',
+    methods:['GET','POST']
   }))
   await apolloServer.start()
   apolloServer.applyMiddleware({app})
