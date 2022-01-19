@@ -29,7 +29,7 @@ const server = async () => {
   const apolloServer = new ApolloServer({schema});
 
   const app = express();
-  
+  console.log("Test")
   app.use(cors({
     origin:'*'
   }))
