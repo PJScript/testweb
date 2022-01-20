@@ -5,14 +5,21 @@ import FlowerInfo from '../entity/FlowerInfo'
 
 @Resolver(FlowerInfo)
 class FlowerInfoResolver {
-  @Query(() => FlowerInfo)
-  async getMbtiContent(@Arg('mbtiCode') mbtiCode:string): Promise<any> {
-    let data = await FlowerInfo.find({
-      mbtiCode:mbtiCode
-    })
+  @Query(() => [FlowerInfo])
+  async getMbtiContent(@Arg('mbtiCode',{nullable:true}) mbtiCode:string): Promise<any> {
+
+    let data
+    if(!mbtiCode){
+      data = await FlowerInfo.find()
+    }else{
+      data = [await FlowerInfo.findOne({
+        mbtiCode:mbtiCode
+      })]
+    }
+    console.log(data,"데이터")
 
     // console.log(data, "데이터")
-    return data[0]
+    return data
   }
   @Query(() => String)
   async ping(){

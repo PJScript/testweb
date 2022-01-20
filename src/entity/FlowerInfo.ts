@@ -12,7 +12,7 @@ export default class FlowerInfo extends BaseEntity{
   @PrimaryGeneratedColumn()
   id: number;
   
-  @Field()
+  @Field({nullable:true})
   @Column({unique:true,length:254})
   mbtiCode: string
 
